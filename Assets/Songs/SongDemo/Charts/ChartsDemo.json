@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "meta": {
+        "chartID": "00001",
+        "chartName": "Chart_Demo",
+        "level": 1,
+        "laneNumber": 4
+    },
+    "timing": {
+        "offsetMs": 0,
+        "bpms": [
+            {
+                "beat": {
+                    "bar": 0,
+                    "numerator": 0,
+                    "denominator": 4
+                },
+                "bpm": 120.0
+            }
+        ],
+        "speedChanges": [
+            {
+                "beat": {
+                    "bar": 0,
+                    "numerator": 0,
+                    "denominator": 4
+                },
+                "speed": 1.0
+            }
+        ]
+    },
+    "notes": [
+        {
+            "id": 1,
+            "beat": {
+                "bar": 1,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap"
+        },
+        {
+            "id": 2,
+            "beat": {
+                "bar": 1,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 1,
+            "type": "hold",
+            "endBeat": 3.0
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+  "songID": "Song_001",
+  "songName": "Demo Song",
+  "artist": "NameDemo",
+  "audio": "Audio/death_by_glamour.ogg",
+  "cover": "Cover/CoverDemo.png",
+  "background": "Cover/Undertale.png",
+  "previewStart": 15.0,
+  "previewLength": 20.0,
+  "charts": [
+    {
+      "level": 1,
+      "file": "Charts/ChartsDemo.json"
+    }
+  ]
+}
