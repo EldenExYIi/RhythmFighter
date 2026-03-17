@@ -39,7 +39,7 @@ public class RhythmManager : MonoBehaviour
         string songRootPath = Path.Combine(Application.dataPath, "Songs", folderName); //构建歌曲根目录路径，例如 "Assets/Songs/SongDemo"
         string configPath = Path.Combine(songRootPath, "Config", songConfigFileName); //构建歌曲配置文件路径，例如 "Assets/Songs/SongDemo/Config/ConfigDemo.json"
 
-        Debug.Log($"RhythmManager: loading song config -> {configPath}");
+        // Debug.Log($"RhythmManager: loading song config -> {configPath}");
 
         CurrentSongConfig = SongConfigLoader.LoadFromFile(configPath); //使用SongConfigLoader从文件加载歌曲配置数据
         if (CurrentSongConfig == null)
@@ -57,7 +57,7 @@ public class RhythmManager : MonoBehaviour
 
         string chartPath = Path.Combine(songRootPath, chartEntry.file); //构建谱面文件路径，例如 "Assets/Songs/SongDemo/Charts/ChartDemo.json"
 
-        Debug.Log($"RhythmManager: loading chart -> {chartPath}");
+        // Debug.Log($"RhythmManager: loading chart -> {chartPath}");
 
         CurrentChartData = ChartLoader.LoadFromFile(chartPath); //使用ChartLoader从文件加载谱面数据
         if (CurrentChartData == null)
@@ -77,7 +77,7 @@ public class RhythmManager : MonoBehaviour
 
         audioSource.clip = CurrentAudioClip; //将加载的音频剪辑设置到AudioSource组件上
 
-        Debug.Log($"RhythmManager: load success. Song={CurrentSongConfig.songName}, Level={level}, Notes={CurrentChartData.notes?.Count ?? 0}");
+        // Debug.Log($"RhythmManager: load success. Song={CurrentSongConfig.songName}, Level={level}, Notes={CurrentChartData.notes?.Count ?? 0}");
 
         InitializeRhythmGameplay();
 
@@ -115,14 +115,14 @@ public class RhythmManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("RhythmManager: initialize rhythm gameplay.");
-        Debug.Log($"Song Name: {CurrentSongConfig.songName}");
-        Debug.Log($"Artist: {CurrentSongConfig.artist}");
-        Debug.Log($"Audio Path: {CurrentSongConfig.audio}");
-        Debug.Log($"Cover Path: {CurrentSongConfig.cover}");
-        Debug.Log($"Chart Name: {CurrentChartData.meta.chartName}");
-        Debug.Log($"Lane Count: {CurrentChartData.meta.laneNumber}");
-        Debug.Log($"Offset(ms): {CurrentChartData.timing.offsetMs}");
+        // Debug.Log("RhythmManager: initialize rhythm gameplay.");
+        // Debug.Log($"Song Name: {CurrentSongConfig.songName}");
+        // Debug.Log($"Artist: {CurrentSongConfig.artist}");
+        // Debug.Log($"Audio Path: {CurrentSongConfig.audio}");
+        // Debug.Log($"Cover Path: {CurrentSongConfig.cover}");
+        // Debug.Log($"Chart Name: {CurrentChartData.meta.chartName}");
+        // Debug.Log($"Lane Count: {CurrentChartData.meta.laneNumber}");
+        // Debug.Log($"Offset(ms): {CurrentChartData.timing.offsetMs}");
 
     }
 
@@ -154,7 +154,7 @@ public class RhythmManager : MonoBehaviour
         }
         isPlaying = false;
         audioSource.Stop();
-        Debug.Log("RhythmManager: music stopped.");
+        // Debug.Log("RhythmManager: music stopped.");
     }
 
     public void PauseMusic()
@@ -165,7 +165,7 @@ public class RhythmManager : MonoBehaviour
         }
 
         audioSource.Pause();
-        Debug.Log("RhythmManager: music paused.");
+        // Debug.Log("RhythmManager: music paused.");
     }
     public double BeatToSeconds(BeatData beat, double bpm) //将谱面中的节拍数据转换为对应的时间（秒）
     {

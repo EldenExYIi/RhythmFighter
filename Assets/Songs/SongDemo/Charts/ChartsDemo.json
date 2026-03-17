@@ -9,7 +9,7 @@
         "spawnToHitTime": 2.0
     },
     "timing": {
-        "offsetMs": -100,
+        "offsetMs": -200,
         "bpms": [
             {
                 "beat": {
