@@ -17,12 +17,14 @@ public class ChartMetaData
     public string chartName; //谱面名称，便于在游戏中显示和选择，以及后续管理谱面数据
     public int level; //谱面难度等级，整数表示，数值越大表示难度越高
     public int laneNumber; //谱面轨道数量，整数表示，数值越大表示需要操作的轨道越多
+    public int beatsPerBar; //每小节的拍数，整数表示，例如4表示四拍子，3表示三拍子，6表示六拍子等
+    public float spawnToHitTime; //音符从生成到需要被击打的时间，单位为秒，用于计算音符生成时机和位置
 }
 
 [Serializable]
 public class ChartTimingData
 {
-    public int offsetMs; //全局偏移，单位为毫秒，用于调整谱面与音乐的同步，正值表示谱面整体向后偏移，负值表示向前偏移
+    public int offsetMs; //全局偏移，单位为毫秒，用于调整谱面与音乐的同步，正值表示谱面整体向后偏移，即延迟生成，负值表示向前偏移，即提前生成
     public List<ChartBpmData> bpms; //谱面BPM变化数据列表，每个元素包含变化发生的节拍和新的BPM值，用于实现歌曲中不同部分的节奏变化
     public List<ChartSpeedChangeData> speedChanges; //谱面速度变化数据列表，每个元素包含变化发生的节拍和新的速度倍率，用于实现歌曲中不同部分的速度变化，例如加速或减速效果
 }
@@ -49,6 +51,8 @@ public class ChartNoteData
     public int lane; //音符所在的轨道，整数表示
     public string type; //音符类型，例如"normal"、"hold"等
     public BeatData endBeat; //音符结束的时间，单位为小节数，仅在type为"hold"时有效，表示长按音符的结束时间
+    public bool isSpawned; //音符是否已经生成，初始值为false，在NoteSpawner中生成音符后设置为true，避免重复生成同一个音符
+    public bool isJudged; //音符是否已经被判定，初始值为false，在RhythmManager中根据玩家输入进行判定后设置为true，避免重复判定同一个音符
 }
 
 [Serializable]

@@ -4,10 +4,12 @@
         "chartID": "00001",
         "chartName": "Chart_Demo",
         "level": 1,
-        "laneNumber": 4
+        "laneNumber": 4,
+        "beatsPerBar": 4,
+        "spawnToHitTime": 2.0
     },
     "timing": {
-        "offsetMs": 0,
+        "offsetMs": -100,
         "bpms": [
             {
                 "beat": {
@@ -31,25 +33,69 @@
     },
     "notes": [
         {
-            "id": 1,
+            "id": 0,
             "beat": {
-                "bar": 1,
+                "bar": 2,
                 "numerator": 0,
                 "denominator": 4
             },
             "lane": 0,
-            "type": "tap"
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 1,
+            "beat": {
+                "bar": 2,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
         },
         {
             "id": 2,
             "beat": {
-                "bar": 1,
+                "bar": 3,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 3,
+            "beat": {
+                "bar": 3,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 4,
+            "beat": {
+                "bar": 3,
                 "numerator": 2,
                 "denominator": 4
             },
             "lane": 1,
             "type": "hold",
-            "endBeat": 3.0
+            "isSpawned": false,
+            "isJudged": false,
+            "endBeat": {
+                "bar": 4,
+                "numerator": 0,
+                "denominator": 0
+            }
         }
     ]
 }
