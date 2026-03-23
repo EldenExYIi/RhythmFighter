@@ -18,7 +18,7 @@ public class ChartMetaData
     public int level; //谱面难度等级，整数表示，数值越大表示难度越高
     public int laneNumber; //谱面轨道数量，整数表示，数值越大表示需要操作的轨道越多
     public int beatsPerBar; //每小节的拍数，整数表示，例如4表示四拍子，3表示三拍子，6表示六拍子等
-    public float spawnToHitTime; //音符从生成到需要被击打的时间，单位为秒，用于计算音符生成时机和位置
+    public float speed; //谱面基础速度，用于控制音符的生成和移动速度
 }
 
 [Serializable]
@@ -34,13 +34,15 @@ public class ChartBpmData
 {
     public BeatData beat; //变化发生的节拍，单位为小节数，例如在一小节四拍子中2.5表示在第2小节的第2拍发生变化
     public float bpm; //新的BPM值，单位为每分钟节拍数，例如120表示每分钟120拍，即每秒2拍
+    public bool isChanged; //标记BPM是否已经被RhythmManager处理过，初始值为false，在RhythmManager中根据当前DSP时间进行BPM变化处理后设置为true，避免重复处理同一个BPM变化
 }
 
 [Serializable]
 public class ChartSpeedChangeData
 {
     public BeatData beat; //变化发生的节拍，单位为小节数，例如在一小节四拍子中2.5表示在第2小节的第2拍发生变化
-    public float speed; //新的速度倍率，用于实现歌曲中不同部分的速度变化，例如1.0表示正常速度，0.5表示半速，2.0表示双倍速
+    public float speedRate; //速度倍率
+    public bool isChanged; //标记速度倍率是否已经被RhythmManager处理过，初始值为false，在RhythmManager中根据当前DSP时间进行速度变化处理后设置为true，避免重复处理同一个速度变化
 }
 
 [Serializable]

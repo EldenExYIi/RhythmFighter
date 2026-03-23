@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class NoteSpawner : MonoBehaviour
     public NotePrefab tapNotePrefab;  // Tap Note 预制体
     public NotePrefab holdNotePrefab; // Hold Note 预制体，可以在后续添加更多类型的音符预制体
     public Transform[] lanes;         // 音符轨道的数组
-    public float currentSongsBpm; // 歌曲的BPM，后续可以根据谱面中的BPM变化进行调整
+
 
     [Header("Position Settings")]
     public Transform lane_0;
@@ -39,25 +40,10 @@ public class NoteSpawner : MonoBehaviour
         {
             return;
         }
-        foreach(var bpmsData in rhythmManager.CurrentChartData.timing.bpms)
-        {
-            if (bpmsData.beat.bar == 0 && bpmsData.beat.numerator == 0) // 在谱面开始时设置初始BPM
-            {
-                currentSongsBpm = bpmsData.bpm;
-                break;
-            }
-            double bpmChangeDspTime = rhythmManager.BeatToSeconds(bpmsData.beat, currentSongsBpm) + rhythmManager.CurrentChartData.timing.offsetMs/1000.0; // 考虑全局偏移
-            if (rhythmManager.currentDspTime >= bpmChangeDspTime)
-            {
-                currentSongsBpm = bpmsData.bpm;
-                Debug.Log($"NoteSpawner: BPM changed to {currentSongsBpm} at beat {bpmsData.beat.bar}:{bpmsData.beat.numerator}/{bpmsData.beat.denominator}");
-            }
-
-        }
         foreach(var noteData in rhythmManager.CurrentChartData.notes)
         {
-            double noteDspTime = rhythmManager.BeatToSeconds(noteData.beat, currentSongsBpm) + rhythmManager.CurrentChartData.timing.offsetMs/1000.0; // 考虑全局偏移
-            if (noteDspTime <= rhythmManager.currentDspTime+rhythmManager.CurrentChartData.meta.spawnToHitTime && !noteData.isSpawned)
+            double noteDspTime = rhythmManager.BeatToSeconds(noteData.beat, rhythmManager.currentSongsBpm) + rhythmManager.CurrentChartData.timing.offsetMs/1000.0; // 考虑全局偏移
+            if (noteDspTime <= rhythmManager.currentDspTime+rhythmManager.spawnToHitTime && !noteData.isSpawned)
             {
                 SpawnNote(noteData);
                 noteData.isSpawned = true; // 标记该音符已生成，避免重复生成
@@ -96,8 +82,8 @@ public class NoteSpawner : MonoBehaviour
         Transform laneTransform = lanes[noteData.lane];
         Vector3 spawnPosition = new Vector3(laneTransform.position.x, spawnLine.position.y, spawnLine.position.z);
         NotePrefab noteView = Instantiate(notePrefab, spawnPosition, Quaternion.identity, notesRoot);
-        double aimedHitTime = rhythmManager.BeatToSeconds(noteData.beat, currentSongsBpm) + rhythmManager.CurrentChartData.timing.offsetMs/1000.0; // 计算音符的目标击打时间，考虑全局偏移
-        noteView.Initialize(aimedHitTime); // 计算音符的目标击打时间，考虑全局偏移
-        Debug.Log($"NoteSpawner: spawned note ID {noteData.id} at lane {noteData.lane} (beat: {noteData.beat.bar}:{noteData.beat.numerator}/{noteData.beat.denominator}),spawnTime:{rhythmManager.currentDspTime:F2}s,aimedHitTime:{aimedHitTime},chartTime:{rhythmManager.BeatToSeconds(noteData.beat, currentSongsBpm):F2}s");
+        double aimedHitTime = rhythmManager.BeatToSeconds(noteData.beat, rhythmManager.currentSongsBpm) + rhythmManager.CurrentChartData.timing.offsetMs/1000.0; // 计算音符的目标击打时间，考虑全局偏移
+        noteView.Initialize(aimedHitTime, rhythmManager, spawnLine, judgeLine, noteData); // 计算音符的目标击打时间，考虑全局偏移
+        Debug.Log($"NoteSpawner: spawned note ID {noteData.id} at lane {noteData.lane} (beat: {noteData.beat.bar}:{noteData.beat.numerator}/{noteData.beat.denominator}),spawnTime:{rhythmManager.currentDspTime:F2}s,aimedHitTime:{aimedHitTime},chartTime:{rhythmManager.BeatToSeconds(noteData.beat, rhythmManager.currentSongsBpm):F2}s");
     }
 }

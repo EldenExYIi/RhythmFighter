@@ -6,7 +6,7 @@
         "level": 1,
         "laneNumber": 4,
         "beatsPerBar": 4,
-        "spawnToHitTime": 2.0
+        "speed": 7.0
     },
     "timing": {
         "offsetMs": -200,
@@ -17,7 +17,8 @@
                     "numerator": 0,
                     "denominator": 4
                 },
-                "bpm": 148.0
+                "bpm": 148.0,
+                "isChanged" : false
             }
         ],
         "speedChanges": [
@@ -27,7 +28,8 @@
                     "numerator": 0,
                     "denominator": 4
                 },
-                "speed": 1.0
+                "speedRate": 1.0,
+                "isChanged" : false
             }
         ]
     },
@@ -93,8 +95,8 @@
             "isJudged": false,
             "endBeat": {
                 "bar": 4,
-                "numerator": 0,
-                "denominator": 0
+                "numerator": 2,
+                "denominator": 4
             }
         }
     ]

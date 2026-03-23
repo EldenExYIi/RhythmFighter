@@ -1,7 +1,10 @@
 using System.Collections;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
+using System;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class RhythmManager : MonoBehaviour
 {
@@ -23,15 +26,56 @@ public class RhythmManager : MonoBehaviour
 
     [Header("Timing")]
     public double musicStartDspTime; // 音乐开始播放的DSP时间，用于与TimingManager同步
-    public double currentDspTime => isPlaying ? AudioSettings.dspTime - musicStartDspTime : 0.0f; // 当前的DSP时间
+    public double currentDspTime => isPlaying ? AudioSettings.dspTime - musicStartDspTime : 0.0; // 当前的DSP时间
+    public double spawnToHitTime; // 音符从生成到需要被击打的时间，单位为秒，用于计算音符生成时机和位置
+
+    [Header("Speed")]
+    public float currentSongsBpm; // 歌曲的BPM，后续可以根据谱面中的BPM变化进行调整
+    public float currentSongsSpeed; // 歌曲的速度，从谱面数据中获取
+
+    [Header("Position Settings")]
+    public Transform spawnLine; // 音符生成线
+    public Transform judgeLine; // 音符判定线
+    public float moveDistance; // 音符从生成线移动到判定线的距离，用于计算spawnToHitTime
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        moveDistance = Mathf.Abs(spawnLine.position.z - judgeLine.position.z);
     }
     private void Start()
     {
         StartCoroutine(LoadSongRoutine(songFolderName, targetLevel));
+    }
+    private void Update()
+    {
+        foreach(var bpmsData in CurrentChartData.timing.bpms)
+        {
+            if (bpmsData.beat.bar == 0 && bpmsData.beat.numerator == 0) // 在谱面开始时设置初始BPM
+            {
+                currentSongsBpm = bpmsData.bpm;
+                break;
+            }
+            double bpmChangeDspTime = BeatToSeconds(bpmsData.beat, currentSongsBpm) + CurrentChartData.timing.offsetMs/1000.0; // 考虑全局偏移
+            if (currentDspTime >= bpmChangeDspTime && !bpmsData.isChanged) // 根据当前DSP时间进行BPM变化处理，确保在BPM变化发生时及时更新节奏管理器的BPM值
+            {
+                currentSongsBpm = bpmsData.bpm;
+                bpmsData.isChanged = true; // 标记该BPM变化已被处理，避免重复处理同一个BPM变化
+                Debug.Log($"NoteSpawner: BPM changed to {currentSongsBpm} at beat {bpmsData.beat.bar}:{bpmsData.beat.numerator}/{bpmsData.beat.denominator}");
+            }
+
+        }
+        foreach(var speedChangeData in CurrentChartData.timing.speedChanges)
+        {
+            double speedChangeDspTime = BeatToSeconds(speedChangeData.beat, currentSongsBpm) + CurrentChartData.timing.offsetMs/1000.0; // 考虑全局偏移
+            if (currentDspTime >= speedChangeDspTime && !speedChangeData.isChanged) // 根据当前DSP时间进行速度变化处理，确保在速度变化发生时及时更新节奏管理器的速度值
+            {
+                currentSongsSpeed = speedChangeData.speedRate * CurrentChartData.meta.speed; // 将速度倍率应用到谱面基础速度上
+                spawnToHitTime = moveDistance / currentSongsSpeed; // 根据新的速度重新计算spawnToHitTime
+                speedChangeData.isChanged = true; // 标记该速度变化已被处理，避免重复处理同一个速度变化
+                Debug.Log($"NoteSpawner: Speed changed to {currentSongsSpeed} at beat {speedChangeData.beat.bar}:{speedChangeData.beat.numerator}/{speedChangeData.beat.denominator}");
+            }
+        }
     }
 
     public IEnumerator LoadSongRoutine(string folderName, int level)
@@ -76,6 +120,7 @@ public class RhythmManager : MonoBehaviour
         }
 
         audioSource.clip = CurrentAudioClip; //将加载的音频剪辑设置到AudioSource组件上
+        spawnToHitTime = moveDistance / CurrentChartData.meta.speed; // 从谱面数据中获取spawnToHitTime，确保与谱面设置一致
 
         // Debug.Log($"RhythmManager: load success. Song={CurrentSongConfig.songName}, Level={level}, Notes={CurrentChartData.notes?.Count ?? 0}");
 
@@ -198,5 +243,25 @@ public class RhythmManager : MonoBehaviour
         int denominator = 1000; //分母固定为1000
 
         return new BeatData { bar = bar, numerator = numerator, denominator = denominator };
+    }
+    public double DistanceToTime(float distance) //将距离转换为时间，单位为秒
+    {
+        if (currentSongsSpeed <= 0)
+        {
+            Debug.LogError("RhythmManager: invalid speed for distance to time conversion.");
+            return 0.0f;
+        }
+
+        return distance / currentSongsSpeed; //将距离除以谱面设置的速度得到对应的时间（秒）
+    }
+    public float TimeToDistance(double time) //将时间转换为距离，单位为单位长度
+    {
+        if (currentSongsSpeed <= 0)
+        {
+            Debug.LogError("RhythmManager: invalid speed for time to distance conversion.");
+            return 0.0f;
+        }
+
+        return (float)(time * currentSongsSpeed); //将时间乘以谱面设置的速度得到对应的距离
     }
 }
