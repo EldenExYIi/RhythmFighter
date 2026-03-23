@@ -93,6 +93,7 @@
             "type": "hold",
             "isSpawned": false,
             "isJudged": false,
+            "isHolding": false,
             "endBeat": {
                 "bar": 4,
                 "numerator": 2,

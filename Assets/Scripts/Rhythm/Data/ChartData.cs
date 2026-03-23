@@ -55,6 +55,7 @@ public class ChartNoteData
     public BeatData endBeat; //音符结束的时间，单位为小节数，仅在type为"hold"时有效，表示长按音符的结束时间
     public bool isSpawned; //音符是否已经生成，初始值为false，在NoteSpawner中生成音符后设置为true，避免重复生成同一个音符
     public bool isJudged; //音符是否已经被判定，初始值为false，在RhythmManager中根据玩家输入进行判定后设置为true，避免重复判定同一个音符
+    public bool isHolding; //玩家是否正在长按该音符，初始值为false，在JudgeManager中处理玩家输入时根据输入事件类型和音符类型进行更新，便于在HoldNotePrefab中根据玩家是否持续按住来显示不同的判定效果
 }
 
 [Serializable]

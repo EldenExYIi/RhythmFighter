@@ -12,9 +12,9 @@ public class HoldNotePrefab : NotePrefab
     private Transform bodyPart; // 长按音符的身体，用于显示长按音符的持续部分，长度根据noteLength动态调整
     private Transform tailPart; // 长按音符的尾部，用于显示长按音符的结束位置
 
-    public override void Initialize(double hitTime, RhythmManager rhythmManager, Transform spawnLine, Transform judgeLine, ChartNoteData noteData)
+    public override void Initialize(double hitTime, RhythmManager rhythmManager, Transform spawnLine, Transform judgeLine, ChartNoteData noteData, JudgeManager judgeManager)
     {
-        base.Initialize(hitTime, rhythmManager, spawnLine, judgeLine, noteData);
+        base.Initialize(hitTime, rhythmManager, spawnLine, judgeLine, noteData, judgeManager);
         lastTime = rhythmManager.BeatToSeconds(noteData.endBeat, rhythmManager.currentSongsBpm) - rhythmManager.BeatToSeconds(noteData.beat, rhythmManager.currentSongsBpm); // 计算长按音符的持续时间
         noteLength = rhythmManager.TimeToDistance(lastTime); // 根据持续时间和速度计算音符长度
         headPart = transform.Find("Head"); // 假设长按音符预制体的结构中有一个名为"Head"的子物体作为头部
@@ -36,8 +36,16 @@ public class HoldNotePrefab : NotePrefab
     public override void Update()
     {
         base.Update();
-        if(rhythmManager.currentDspTime > hitTime + lastTime + 0.2*rhythmManager.spawnToHitTime) // 音符经过判定线后销毁，避免过多未被击打的音符占用资源
+        if(rhythmManager.currentDspTime > hitTime + lastTime && noteData.isHolding && !noteData.isJudged) // 如果当前时间超过长按音符的结束时间且该音符还未被判定，说明玩家没有持续按住整个长按音符，判定为Miss
         {
+            judgeManager.ShowJedgeEffect(JudgeManager.JudgeResult.Perfect); // 显示Miss判定效果
+            noteData.isJudged = true; // 标记该音符已经被判定，避免重复判定
+            Destroy(gameObject);
+        }
+        if(rhythmManager.currentDspTime > hitTime + lastTime + 0.1*rhythmManager.spawnToHitTime) // 音符经过判定线后销毁，避免过多未被击打的音符占用资源
+        {
+            judgeManager.ShowJedgeEffect(JudgeManager.JudgeResult.Miss); // 显示Miss判定效果
+            noteData.isJudged = true; // 标记该音符已经被判定，避免重复判定
             Destroy(gameObject);
         }
     }

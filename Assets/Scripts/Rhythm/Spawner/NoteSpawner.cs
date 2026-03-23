@@ -6,6 +6,7 @@ using UnityEngine;
 public class NoteSpawner : MonoBehaviour
 {
     public RhythmManager rhythmManager;// 引用 RhythmManager 获取节奏信息
+    public JudgeManager judgeManager; // 引用 JudgeManager 进行判定
     
     [Header("Note Prefabs")]
     public NotePrefab tapNotePrefab;  // Tap Note 预制体
@@ -83,7 +84,7 @@ public class NoteSpawner : MonoBehaviour
         Vector3 spawnPosition = new Vector3(laneTransform.position.x, spawnLine.position.y, spawnLine.position.z);
         NotePrefab noteView = Instantiate(notePrefab, spawnPosition, Quaternion.identity, notesRoot);
         double aimedHitTime = rhythmManager.BeatToSeconds(noteData.beat, rhythmManager.currentSongsBpm) + rhythmManager.CurrentChartData.timing.offsetMs/1000.0; // 计算音符的目标击打时间，考虑全局偏移
-        noteView.Initialize(aimedHitTime, rhythmManager, spawnLine, judgeLine, noteData); // 计算音符的目标击打时间，考虑全局偏移
+        noteView.Initialize(aimedHitTime, rhythmManager, spawnLine, judgeLine, noteData, judgeManager); // 计算音符的目标击打时间，考虑全局偏移
         Debug.Log($"NoteSpawner: spawned note ID {noteData.id} at lane {noteData.lane} (beat: {noteData.beat.bar}:{noteData.beat.numerator}/{noteData.beat.denominator}),spawnTime:{rhythmManager.currentDspTime:F2}s,aimedHitTime:{aimedHitTime},chartTime:{rhythmManager.BeatToSeconds(noteData.beat, rhythmManager.currentSongsBpm):F2}s");
     }
 }
