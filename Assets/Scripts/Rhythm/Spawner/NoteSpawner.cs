@@ -81,7 +81,7 @@ public class NoteSpawner : MonoBehaviour
         }
 
         Transform laneTransform = lanes[noteData.lane];
-        Vector3 spawnPosition = new Vector3(laneTransform.position.x, spawnLine.position.y, spawnLine.position.z);
+        Vector3 spawnPosition = new Vector3(laneTransform.position.x, notesRoot.position.y, spawnLine.position.z);
         NotePrefab noteView = Instantiate(notePrefab, spawnPosition, Quaternion.identity, notesRoot);
         double aimedHitTime = rhythmManager.BeatToSeconds(noteData.beat, rhythmManager.currentSongsBpm) + rhythmManager.CurrentChartData.timing.offsetMs/1000.0; // 计算音符的目标击打时间，考虑全局偏移
         noteView.Initialize(aimedHitTime, rhythmManager, spawnLine, judgeLine, noteData, judgeManager); // 计算音符的目标击打时间，考虑全局偏移

@@ -28,6 +28,7 @@ public class RhythmManager : MonoBehaviour
     public double musicStartDspTime; // 音乐开始播放的DSP时间，用于与TimingManager同步
     public double currentDspTime => isPlaying ? AudioSettings.dspTime - musicStartDspTime : 0.0; // 当前的DSP时间
     public double spawnToHitTime; // 音符从生成到需要被击打的时间，单位为秒，用于计算音符生成时机和位置
+    public double prepareTime=2.0; // 在音乐开始前提前生成音符的时间，单位为秒，确保玩家有足够的时间看到音符并做出反应
 
     [Header("Speed")]
     public float currentSongsBpm; // 歌曲的BPM，后续可以根据谱面中的BPM变化进行调整
@@ -37,6 +38,12 @@ public class RhythmManager : MonoBehaviour
     public Transform spawnLine; // 音符生成线
     public Transform judgeLine; // 音符判定线
     public float moveDistance; // 音符从生成线移动到判定线的距离，用于计算spawnToHitTime
+
+    [Header("Rhythm Line")]
+    public RhythmLinePrefab rhythmLinePrefab; // 引用RhythmLinePrefab预制体，用于实例化音符
+    public Transform rhythmLinesRoot; // 音符的父物体，便于管理生成的音符
+    private int currentBar; // 当前小节数，用于生成节奏线
+    // private int currentBeatInBar; // 当前小节内的节拍数，用于生成节奏线
 
     private void Awake()
     {
@@ -76,6 +83,7 @@ public class RhythmManager : MonoBehaviour
                 Debug.Log($"NoteSpawner: Speed changed to {currentSongsSpeed} at beat {speedChangeData.beat.bar}:{speedChangeData.beat.numerator}/{speedChangeData.beat.denominator}");
             }
         }
+        SpawnRhythmLine(); // 在每帧更新中调用SpawnRhythmLine方法，根据当前DSP时间生成节奏线，确保节奏线在正确的时间出现在生成线上
     }
 
     public IEnumerator LoadSongRoutine(string folderName, int level)
@@ -160,6 +168,9 @@ public class RhythmManager : MonoBehaviour
             return;
         }
 
+        currentBar = 0; // 当前小节数，用于生成节奏线
+        // currentBeatInBar = 0; // 当前小节内的节拍数，用于生成节奏线
+
         // Debug.Log("RhythmManager: initialize rhythm gameplay.");
         // Debug.Log($"Song Name: {CurrentSongConfig.songName}");
         // Debug.Log($"Artist: {CurrentSongConfig.artist}");
@@ -189,6 +200,32 @@ public class RhythmManager : MonoBehaviour
         isPlaying = true;
         audioSource.Play();
         Debug.Log($"RhythmManager: music started at DSP time {musicStartDspTime}");
+    }
+
+    public void SpawnRhythmLine()
+    {
+        //每拍开始时生成一条线
+        //double currentBeatTime = BeatToSeconds(new BeatData { bar = currentBar, numerator = currentBeatInBar, denominator = CurrentChartData.meta.beatsPerBar }, currentSongsBpm) + CurrentChartData.timing.offsetMs/1000.0; //计算当前节奏线对应的DSP时间，考虑全局偏移
+        // if(currentDspTime >= currentBeatTime - spawnToHitTime && currentDspTime < currentBeatTime) //在当前DSP时间接近节奏线的DSP时间时生成节奏线，确保节奏线在正确的时间出现在生成线上
+        // {
+        //     RhythmLinePrefab newLine = Instantiate(rhythmLinePrefab, new Vector3(spawnLine.position.x, rhythmLinesRoot.position.y, spawnLine.position.z), Quaternion.identity, rhythmLinesRoot); //实例化一个新的节奏线预制体，设置其位置为生成线的位置，父物体为rhythmLinesRoot
+        //     newLine.Initialize(currentBeatTime, this, spawnLine, judgeLine); //调用节奏线预制体的Initialize方法，传入当前节奏线的DSP时间、节奏管理器实例、生成线和判定线的Transform引用
+        //     currentBeatInBar++; //更新当前小节内的节拍数
+        //     if(currentBeatInBar >= CurrentChartData.meta.beatsPerBar) //如果当前小节内的节拍数超过每小节的节拍数，说明进入了下一个小节
+        //     {
+        //         currentBeatInBar = 0; //重置当前小节内的节拍数
+        //         currentBar++; //更新当前小节数
+        //     }
+        // }
+
+        //每小节开始时生成一条线
+        double currentBarTime = BeatToSeconds(new BeatData { bar = currentBar, numerator = 0, denominator = CurrentChartData.meta.beatsPerBar }, currentSongsBpm) + CurrentChartData.timing.offsetMs/1000.0; //计算当前小节开始时的DSP时间，考虑全局偏移
+        if(currentDspTime >= currentBarTime - spawnToHitTime) //在当前DSP时间接近小节开始的DSP时间时生成节奏线，确保节奏线在正确的时间出现在生成线上
+        {
+            RhythmLinePrefab newLine = Instantiate(rhythmLinePrefab, new Vector3(spawnLine.position.x, rhythmLinesRoot.position.y, spawnLine.position.z), Quaternion.identity, rhythmLinesRoot); //实例化一个新的节奏线预制体，设置其位置为生成线的位置，父物体为rhythmLinesRoot
+            newLine.Initialize(currentBarTime, this, spawnLine, judgeLine); //调用节奏线预制体的Initialize方法，传入当前小节开始的DSP时间、节奏管理器实例、生成线和判定线的Transform引用
+            currentBar++; //更新当前小节数
+        }
     }
 
     public void StopMusic()

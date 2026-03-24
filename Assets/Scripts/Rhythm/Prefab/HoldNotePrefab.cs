@@ -36,15 +36,18 @@ public class HoldNotePrefab : NotePrefab
     public override void Update()
     {
         base.Update();
-        if(rhythmManager.currentDspTime > hitTime + lastTime && noteData.isHolding && !noteData.isJudged) // 如果当前时间超过长按音符的结束时间且该音符还未被判定，说明玩家没有持续按住整个长按音符，判定为Miss
+        if(rhythmManager.currentDspTime > hitTime + lastTime && noteData.isHolding && !noteData.isJudged) // 如果当前时间超过长按音符的结束时间且玩家正在长按且该音符还没有被判定，显示Perfect判定效果并销毁音符
         {
-            judgeManager.ShowJedgeEffect(JudgeManager.JudgeResult.Perfect); // 显示Miss判定效果
+            judgeManager.ShowJedgeEffect(JudgeManager.JudgeResult.Perfect); // 显示Perfect判定效果
             noteData.isJudged = true; // 标记该音符已经被判定，避免重复判定
             Destroy(gameObject);
         }
         if(rhythmManager.currentDspTime > hitTime + lastTime + 0.1*rhythmManager.spawnToHitTime) // 音符经过判定线后销毁，避免过多未被击打的音符占用资源
         {
-            judgeManager.ShowJedgeEffect(JudgeManager.JudgeResult.Miss); // 显示Miss判定效果
+            if(!noteData.isJudged) // 如果该音符还没有被判定，显示Miss判定效果
+            {
+                judgeManager.ShowJedgeEffect(JudgeManager.JudgeResult.Miss); // 显示Miss判定效果
+            }
             noteData.isJudged = true; // 标记该音符已经被判定，避免重复判定
             Destroy(gameObject);
         }

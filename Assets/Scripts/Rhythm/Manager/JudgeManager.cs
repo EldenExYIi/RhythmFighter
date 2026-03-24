@@ -136,10 +136,6 @@ public class JudgeManager : MonoBehaviour
 
             ShowJedgeEffect(result);
             Debug.Log($"JudgeManager: lane {lane} input at {inputDspTime:F2}s, closest note ID {closestNote.id} at beat {closestNote.beat.bar}:{closestNote.beat.numerator}/{closestNote.beat.denominator}, hit time diff: {closestTimeDiff:F2}s, result: {result}");
-            if (closestNote.type == "hold" && result != JudgeResult.Miss) // 如果是长按音符且没有Miss，根据玩家输入的时间与目标击打时间的关系来更新长按状态，便于在HoldNotePrefab中显示不同的判定效果
-            {
-                closestNote.isHolding = true;
-            }
             closestNote.isJudged = true; // 标记该音符已经被判定，避免重复判定
         }
         else
