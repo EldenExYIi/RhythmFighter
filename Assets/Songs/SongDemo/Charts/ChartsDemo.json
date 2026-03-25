@@ -6,7 +6,7 @@
         "level": 1,
         "laneNumber": 4,
         "beatsPerBar": 4,
-        "spawnToHitTime": 2.0
+        "speed": 7.0
     },
     "timing": {
         "offsetMs": -200,
@@ -17,7 +17,8 @@
                     "numerator": 0,
                     "denominator": 4
                 },
-                "bpm": 148.0
+                "bpm": 148.0,
+                "isChanged": false
             }
         ],
         "speedChanges": [
@@ -27,7 +28,8 @@
                     "numerator": 0,
                     "denominator": 4
                 },
-                "speed": 1.0
+                "speedRate": 1.0,
+                "isChanged": false
             }
         ]
     },
@@ -75,10 +77,16 @@
                 "numerator": 2,
                 "denominator": 4
             },
-            "lane": 3,
-            "type": "tap",
+            "lane": 1,
+            "type": "hold",
             "isSpawned": false,
-            "isJudged": false
+            "isJudged": false,
+            "isHolding": false,
+            "endBeat": {
+                "bar": 4,
+                "numerator": 2,
+                "denominator": 4
+            }
         },
         {
             "id": 4,
@@ -87,15 +95,4570 @@
                 "numerator": 2,
                 "denominator": 4
             },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 5,
+            "beat": {
+                "bar": 4,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 6,
+            "beat": {
+                "bar": 4,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 7,
+            "beat": {
+                "bar": 5,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 8,
+            "beat": {
+                "bar": 5,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 9,
+            "beat": {
+                "bar": 5,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 10,
+            "beat": {
+                "bar": 5,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 11,
+            "beat": {
+                "bar": 6,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 12,
+            "beat": {
+                "bar": 6,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 13,
+            "beat": {
+                "bar": 7,
+                "numerator": 1,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 14,
+            "beat": {
+                "bar": 7,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 15,
+            "beat": {
+                "bar": 8,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 16,
+            "beat": {
+                "bar": 8,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 17,
+            "beat": {
+                "bar": 8,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 18,
+            "beat": {
+                "bar": 9,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 19,
+            "beat": {
+                "bar": 9,
+                "numerator": 1,
+                "denominator": 4
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 20,
+            "beat": {
+                "bar": 9,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 21,
+            "beat": {
+                "bar": 9,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 22,
+            "beat": {
+                "bar": 10,
+                "numerator": 1,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 23,
+            "beat": {
+                "bar": 10,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 24,
+            "beat": {
+                "bar": 11,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 25,
+            "beat": {
+                "bar": 11,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 26,
+            "beat": {
+                "bar": 12,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 27,
+            "beat": {
+                "bar": 12,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 28,
+            "beat": {
+                "bar": 12,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 29,
+            "beat": {
+                "bar": 12,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 30,
+            "beat": {
+                "bar": 13,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 31,
+            "beat": {
+                "bar": 13,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 32,
+            "beat": {
+                "bar": 13,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 33,
+            "beat": {
+                "bar": 13,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 34,
+            "beat": {
+                "bar": 14,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 35,
+            "beat": {
+                "bar": 14,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 36,
+            "beat": {
+                "bar": 14,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 37,
+            "beat": {
+                "bar": 15,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 38,
+            "beat": {
+                "bar": 15,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 39,
+            "beat": {
+                "bar": 15,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 40,
+            "beat": {
+                "bar": 16,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 41,
+            "beat": {
+                "bar": 16,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 42,
+            "beat": {
+                "bar": 16,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 43,
+            "beat": {
+                "bar": 17,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 44,
+            "beat": {
+                "bar": 17,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 45,
+            "beat": {
+                "bar": 17,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 46,
+            "beat": {
+                "bar": 17,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 47,
+            "beat": {
+                "bar": 18,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 48,
+            "beat": {
+                "bar": 18,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 49,
+            "beat": {
+                "bar": 18,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 50,
+            "beat": {
+                "bar": 18,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 51,
+            "beat": {
+                "bar": 19,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 52,
+            "beat": {
+                "bar": 19,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 53,
+            "beat": {
+                "bar": 19,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 54,
+            "beat": {
+                "bar": 20,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 55,
+            "beat": {
+                "bar": 20,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 56,
+            "beat": {
+                "bar": 20,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 57,
+            "beat": {
+                "bar": 21,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 58,
+            "beat": {
+                "bar": 21,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 59,
+            "beat": {
+                "bar": 21,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 60,
+            "beat": {
+                "bar": 21,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 61,
+            "beat": {
+                "bar": 21,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 62,
+            "beat": {
+                "bar": 22,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 63,
+            "beat": {
+                "bar": 22,
+                "numerator": 0,
+                "denominator": 4
+            },
             "lane": 1,
             "type": "hold",
             "isSpawned": false,
             "isJudged": false,
+            "isHolding": false,
             "endBeat": {
-                "bar": 4,
-                "numerator": 0,
-                "denominator": 0
+                "bar": 23,
+                "numerator": 2,
+                "denominator": 4
             }
+        },
+        {
+            "id": 64,
+            "beat": {
+                "bar": 22,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 65,
+            "beat": {
+                "bar": 22,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 66,
+            "beat": {
+                "bar": 22,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 67,
+            "beat": {
+                "bar": 23,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 68,
+            "beat": {
+                "bar": 23,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 69,
+            "beat": {
+                "bar": 23,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 70,
+            "beat": {
+                "bar": 23,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 71,
+            "beat": {
+                "bar": 24,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 72,
+            "beat": {
+                "bar": 24,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 2,
+            "type": "hold",
+            "isSpawned": false,
+            "isJudged": false,
+            "isHolding": false,
+            "endBeat": {
+                "bar": 25,
+                "numerator": 0,
+                "denominator": 4
+            }
+        },
+        {
+            "id": 73,
+            "beat": {
+                "bar": 24,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 74,
+            "beat": {
+                "bar": 24,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 75,
+            "beat": {
+                "bar": 25,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 76,
+            "beat": {
+                "bar": 25,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 77,
+            "beat": {
+                "bar": 25,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 78,
+            "beat": {
+                "bar": 25,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 79,
+            "beat": {
+                "bar": 26,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 80,
+            "beat": {
+                "bar": 26,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 81,
+            "beat": {
+                "bar": 26,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 82,
+            "beat": {
+                "bar": 26,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 83,
+            "beat": {
+                "bar": 26,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 84,
+            "beat": {
+                "bar": 27,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 85,
+            "beat": {
+                "bar": 27,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 86,
+            "beat": {
+                "bar": 27,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 87,
+            "beat": {
+                "bar": 27,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 88,
+            "beat": {
+                "bar": 28,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 89,
+            "beat": {
+                "bar": 28,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 90,
+            "beat": {
+                "bar": 28,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 91,
+            "beat": {
+                "bar": 28,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 92,
+            "beat": {
+                "bar": 28,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 93,
+            "beat": {
+                "bar": 29,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 94,
+            "beat": {
+                "bar": 29,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 95,
+            "beat": {
+                "bar": 29,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 96,
+            "beat": {
+                "bar": 29,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 97,
+            "beat": {
+                "bar": 30,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 98,
+            "beat": {
+                "bar": 30,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 99,
+            "beat": {
+                "bar": 30,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 100,
+            "beat": {
+                "bar": 30,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 101,
+            "beat": {
+                "bar": 30,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 102,
+            "beat": {
+                "bar": 31,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 103,
+            "beat": {
+                "bar": 31,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 104,
+            "beat": {
+                "bar": 31,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 105,
+            "beat": {
+                "bar": 31,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 106,
+            "beat": {
+                "bar": 31,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 107,
+            "beat": {
+                "bar": 31,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 108,
+            "beat": {
+                "bar": 32,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 109,
+            "beat": {
+                "bar": 32,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 110,
+            "beat": {
+                "bar": 32,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 111,
+            "beat": {
+                "bar": 32,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 112,
+            "beat": {
+                "bar": 33,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 113,
+            "beat": {
+                "bar": 33,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 114,
+            "beat": {
+                "bar": 33,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 1,
+            "type": "hold",
+            "isSpawned": false,
+            "isJudged": false,
+            "isHolding": false,
+            "endBeat": {
+                "bar": 34,
+                "numerator": 2,
+                "denominator": 4
+            }
+        },
+        {
+            "id": 115,
+            "beat": {
+                "bar": 33,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 116,
+            "beat": {
+                "bar": 34,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 117,
+            "beat": {
+                "bar": 34,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 118,
+            "beat": {
+                "bar": 34,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 119,
+            "beat": {
+                "bar": 34,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 120,
+            "beat": {
+                "bar": 34,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 121,
+            "beat": {
+                "bar": 35,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 122,
+            "beat": {
+                "bar": 35,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 123,
+            "beat": {
+                "bar": 35,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 124,
+            "beat": {
+                "bar": 35,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 125,
+            "beat": {
+                "bar": 35,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 126,
+            "beat": {
+                "bar": 35,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 127,
+            "beat": {
+                "bar": 36,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 128,
+            "beat": {
+                "bar": 36,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 129,
+            "beat": {
+                "bar": 36,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 130,
+            "beat": {
+                "bar": 36,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 131,
+            "beat": {
+                "bar": 37,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 132,
+            "beat": {
+                "bar": 37,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 133,
+            "beat": {
+                "bar": 37,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 134,
+            "beat": {
+                "bar": 37,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 135,
+            "beat": {
+                "bar": 38,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 136,
+            "beat": {
+                "bar": 38,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 137,
+            "beat": {
+                "bar": 38,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 138,
+            "beat": {
+                "bar": 38,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 139,
+            "beat": {
+                "bar": 38,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 140,
+            "beat": {
+                "bar": 39,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 141,
+            "beat": {
+                "bar": 39,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 142,
+            "beat": {
+                "bar": 39,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 143,
+            "beat": {
+                "bar": 39,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 144,
+            "beat": {
+                "bar": 39,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 145,
+            "beat": {
+                "bar": 39,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 146,
+            "beat": {
+                "bar": 40,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 147,
+            "beat": {
+                "bar": 40,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 148,
+            "beat": {
+                "bar": 40,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 149,
+            "beat": {
+                "bar": 40,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 150,
+            "beat": {
+                "bar": 41,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 151,
+            "beat": {
+                "bar": 41,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 152,
+            "beat": {
+                "bar": 41,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 1,
+            "type": "hold",
+            "isSpawned": false,
+            "isJudged": false,
+            "isHolding": false,
+            "endBeat": {
+                "bar": 42,
+                "numerator": 2,
+                "denominator": 4
+            }
+        },
+        {
+            "id": 153,
+            "beat": {
+                "bar": 41,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 154,
+            "beat": {
+                "bar": 42,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 155,
+            "beat": {
+                "bar": 42,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 156,
+            "beat": {
+                "bar": 42,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 157,
+            "beat": {
+                "bar": 42,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 158,
+            "beat": {
+                "bar": 42,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 159,
+            "beat": {
+                "bar": 43,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 160,
+            "beat": {
+                "bar": 43,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 161,
+            "beat": {
+                "bar": 43,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 162,
+            "beat": {
+                "bar": 43,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 163,
+            "beat": {
+                "bar": 43,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 164,
+            "beat": {
+                "bar": 43,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 165,
+            "beat": {
+                "bar": 44,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 166,
+            "beat": {
+                "bar": 44,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 167,
+            "beat": {
+                "bar": 44,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 168,
+            "beat": {
+                "bar": 44,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 169,
+            "beat": {
+                "bar": 45,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 170,
+            "beat": {
+                "bar": 45,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 171,
+            "beat": {
+                "bar": 45,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 172,
+            "beat": {
+                "bar": 45,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 173,
+            "beat": {
+                "bar": 46,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "hold",
+            "isSpawned": false,
+            "isJudged": false,
+            "isHolding": false,
+            "endBeat": {
+                "bar": 47,
+                "numerator": 2,
+                "denominator": 4
+            }
+        },
+        {
+            "id": 174,
+            "beat": {
+                "bar": 46,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 175,
+            "beat": {
+                "bar": 46,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 176,
+            "beat": {
+                "bar": 46,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 177,
+            "beat": {
+                "bar": 47,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 178,
+            "beat": {
+                "bar": 47,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 179,
+            "beat": {
+                "bar": 47,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 180,
+            "beat": {
+                "bar": 48,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 181,
+            "beat": {
+                "bar": 48,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 182,
+            "beat": {
+                "bar": 48,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 183,
+            "beat": {
+                "bar": 48,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 184,
+            "beat": {
+                "bar": 49,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 185,
+            "beat": {
+                "bar": 49,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 186,
+            "beat": {
+                "bar": 49,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 187,
+            "beat": {
+                "bar": 49,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 188,
+            "beat": {
+                "bar": 50,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 189,
+            "beat": {
+                "bar": 50,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "hold",
+            "isSpawned": false,
+            "isJudged": false,
+            "isHolding": false,
+            "endBeat": {
+                "bar": 51,
+                "numerator": 2,
+                "denominator": 4
+            }
+        },
+        {
+            "id": 190,
+            "beat": {
+                "bar": 50,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 191,
+            "beat": {
+                "bar": 50,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 192,
+            "beat": {
+                "bar": 51,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 193,
+            "beat": {
+                "bar": 51,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 194,
+            "beat": {
+                "bar": 51,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 195,
+            "beat": {
+                "bar": 52,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 196,
+            "beat": {
+                "bar": 52,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 197,
+            "beat": {
+                "bar": 52,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 198,
+            "beat": {
+                "bar": 52,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 199,
+            "beat": {
+                "bar": 53,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 200,
+            "beat": {
+                "bar": 53,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 201,
+            "beat": {
+                "bar": 53,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 202,
+            "beat": {
+                "bar": 53,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 203,
+            "beat": {
+                "bar": 54,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 204,
+            "beat": {
+                "bar": 54,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 205,
+            "beat": {
+                "bar": 54,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 206,
+            "beat": {
+                "bar": 54,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 207,
+            "beat": {
+                "bar": 55,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 208,
+            "beat": {
+                "bar": 55,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 209,
+            "beat": {
+                "bar": 55,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 210,
+            "beat": {
+                "bar": 55,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 211,
+            "beat": {
+                "bar": 56,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 212,
+            "beat": {
+                "bar": 56,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 213,
+            "beat": {
+                "bar": 56,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 214,
+            "beat": {
+                "bar": 56,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 215,
+            "beat": {
+                "bar": 56,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 216,
+            "beat": {
+                "bar": 57,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 217,
+            "beat": {
+                "bar": 57,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 218,
+            "beat": {
+                "bar": 57,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 219,
+            "beat": {
+                "bar": 57,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 220,
+            "beat": {
+                "bar": 58,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 221,
+            "beat": {
+                "bar": 58,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 222,
+            "beat": {
+                "bar": 58,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 223,
+            "beat": {
+                "bar": 58,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 224,
+            "beat": {
+                "bar": 58,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 225,
+            "beat": {
+                "bar": 59,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 226,
+            "beat": {
+                "bar": 59,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 227,
+            "beat": {
+                "bar": 59,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 228,
+            "beat": {
+                "bar": 59,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 229,
+            "beat": {
+                "bar": 60,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 230,
+            "beat": {
+                "bar": 60,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 231,
+            "beat": {
+                "bar": 60,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 232,
+            "beat": {
+                "bar": 60,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 233,
+            "beat": {
+                "bar": 60,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 234,
+            "beat": {
+                "bar": 61,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 235,
+            "beat": {
+                "bar": 61,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 236,
+            "beat": {
+                "bar": 61,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 237,
+            "beat": {
+                "bar": 61,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 238,
+            "beat": {
+                "bar": 62,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 239,
+            "beat": {
+                "bar": 62,
+                "numerator": 1,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 240,
+            "beat": {
+                "bar": 62,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 241,
+            "beat": {
+                "bar": 62,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 242,
+            "beat": {
+                "bar": 62,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 243,
+            "beat": {
+                "bar": 62,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 244,
+            "beat": {
+                "bar": 62,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 245,
+            "beat": {
+                "bar": 62,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 246,
+            "beat": {
+                "bar": 63,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 247,
+            "beat": {
+                "bar": 63,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 248,
+            "beat": {
+                "bar": 63,
+                "numerator": 1,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 249,
+            "beat": {
+                "bar": 63,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 250,
+            "beat": {
+                "bar": 63,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 251,
+            "beat": {
+                "bar": 63,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 252,
+            "beat": {
+                "bar": 63,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 253,
+            "beat": {
+                "bar": 63,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 254,
+            "beat": {
+                "bar": 63,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 255,
+            "beat": {
+                "bar": 64,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 256,
+            "beat": {
+                "bar": 64,
+                "numerator": 1,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 257,
+            "beat": {
+                "bar": 64,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 258,
+            "beat": {
+                "bar": 64,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 259,
+            "beat": {
+                "bar": 64,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 260,
+            "beat": {
+                "bar": 64,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 261,
+            "beat": {
+                "bar": 64,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 262,
+            "beat": {
+                "bar": 64,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 263,
+            "beat": {
+                "bar": 65,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 264,
+            "beat": {
+                "bar": 65,
+                "numerator": 1,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 265,
+            "beat": {
+                "bar": 65,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 266,
+            "beat": {
+                "bar": 65,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 267,
+            "beat": {
+                "bar": 65,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 268,
+            "beat": {
+                "bar": 65,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 269,
+            "beat": {
+                "bar": 65,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 270,
+            "beat": {
+                "bar": 65,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 271,
+            "beat": {
+                "bar": 66,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 272,
+            "beat": {
+                "bar": 66,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 1,
+            "type": "hold",
+            "isSpawned": false,
+            "isJudged": false,
+            "isHolding": false,
+            "endBeat": {
+                "bar": 66,
+                "numerator": 6,
+                "denominator": 8
+            }
+        },
+        {
+            "id": 273,
+            "beat": {
+                "bar": 66,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 274,
+            "beat": {
+                "bar": 66,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 275,
+            "beat": {
+                "bar": 66,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 276,
+            "beat": {
+                "bar": 66,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 277,
+            "beat": {
+                "bar": 66,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 278,
+            "beat": {
+                "bar": 67,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 279,
+            "beat": {
+                "bar": 67,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 280,
+            "beat": {
+                "bar": 67,
+                "numerator": 1,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 281,
+            "beat": {
+                "bar": 67,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 282,
+            "beat": {
+                "bar": 67,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 283,
+            "beat": {
+                "bar": 67,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 284,
+            "beat": {
+                "bar": 67,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 285,
+            "beat": {
+                "bar": 67,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 286,
+            "beat": {
+                "bar": 67,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 287,
+            "beat": {
+                "bar": 68,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 288,
+            "beat": {
+                "bar": 68,
+                "numerator": 1,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 289,
+            "beat": {
+                "bar": 68,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 290,
+            "beat": {
+                "bar": 68,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 291,
+            "beat": {
+                "bar": 68,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 292,
+            "beat": {
+                "bar": 68,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 293,
+            "beat": {
+                "bar": 68,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 294,
+            "beat": {
+                "bar": 68,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 295,
+            "beat": {
+                "bar": 69,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 296,
+            "beat": {
+                "bar": 69,
+                "numerator": 1,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 297,
+            "beat": {
+                "bar": 69,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 298,
+            "beat": {
+                "bar": 69,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 299,
+            "beat": {
+                "bar": 69,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 300,
+            "beat": {
+                "bar": 69,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 301,
+            "beat": {
+                "bar": 69,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 302,
+            "beat": {
+                "bar": 69,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 303,
+            "beat": {
+                "bar": 70,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 304,
+            "beat": {
+                "bar": 70,
+                "numerator": 1,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 305,
+            "beat": {
+                "bar": 70,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 306,
+            "beat": {
+                "bar": 70,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 307,
+            "beat": {
+                "bar": 70,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 308,
+            "beat": {
+                "bar": 70,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 309,
+            "beat": {
+                "bar": 70,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 310,
+            "beat": {
+                "bar": 70,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 311,
+            "beat": {
+                "bar": 71,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 312,
+            "beat": {
+                "bar": 71,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 313,
+            "beat": {
+                "bar": 71,
+                "numerator": 1,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 314,
+            "beat": {
+                "bar": 71,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 315,
+            "beat": {
+                "bar": 71,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 316,
+            "beat": {
+                "bar": 71,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 317,
+            "beat": {
+                "bar": 71,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 318,
+            "beat": {
+                "bar": 71,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 319,
+            "beat": {
+                "bar": 71,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 320,
+            "beat": {
+                "bar": 72,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 321,
+            "beat": {
+                "bar": 72,
+                "numerator": 1,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 322,
+            "beat": {
+                "bar": 72,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 323,
+            "beat": {
+                "bar": 72,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 324,
+            "beat": {
+                "bar": 72,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 325,
+            "beat": {
+                "bar": 72,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 326,
+            "beat": {
+                "bar": 72,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 327,
+            "beat": {
+                "bar": 72,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 328,
+            "beat": {
+                "bar": 73,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 329,
+            "beat": {
+                "bar": 73,
+                "numerator": 1,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 330,
+            "beat": {
+                "bar": 73,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 331,
+            "beat": {
+                "bar": 73,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 332,
+            "beat": {
+                "bar": 73,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 333,
+            "beat": {
+                "bar": 73,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 334,
+            "beat": {
+                "bar": 73,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 335,
+            "beat": {
+                "bar": 73,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 336,
+            "beat": {
+                "bar": 74,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 337,
+            "beat": {
+                "bar": 74,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 1,
+            "type": "hold",
+            "isSpawned": false,
+            "isJudged": false,
+            "isHolding": false,
+            "endBeat": {
+                "bar": 74,
+                "numerator": 6,
+                "denominator": 8
+            }
+        },
+        {
+            "id": 338,
+            "beat": {
+                "bar": 74,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 339,
+            "beat": {
+                "bar": 74,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 340,
+            "beat": {
+                "bar": 74,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 341,
+            "beat": {
+                "bar": 74,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 342,
+            "beat": {
+                "bar": 74,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 343,
+            "beat": {
+                "bar": 75,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 344,
+            "beat": {
+                "bar": 75,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 345,
+            "beat": {
+                "bar": 75,
+                "numerator": 1,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 346,
+            "beat": {
+                "bar": 75,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 347,
+            "beat": {
+                "bar": 75,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 348,
+            "beat": {
+                "bar": 75,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 349,
+            "beat": {
+                "bar": 75,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 350,
+            "beat": {
+                "bar": 75,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 351,
+            "beat": {
+                "bar": 75,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 352,
+            "beat": {
+                "bar": 76,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 353,
+            "beat": {
+                "bar": 76,
+                "numerator": 1,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 354,
+            "beat": {
+                "bar": 76,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 355,
+            "beat": {
+                "bar": 76,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 356,
+            "beat": {
+                "bar": 76,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 357,
+            "beat": {
+                "bar": 76,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 358,
+            "beat": {
+                "bar": 76,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 359,
+            "beat": {
+                "bar": 76,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 360,
+            "beat": {
+                "bar": 77,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 361,
+            "beat": {
+                "bar": 77,
+                "numerator": 1,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 362,
+            "beat": {
+                "bar": 77,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 363,
+            "beat": {
+                "bar": 77,
+                "numerator": 3,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 364,
+            "beat": {
+                "bar": 77,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 365,
+            "beat": {
+                "bar": 77,
+                "numerator": 5,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 366,
+            "beat": {
+                "bar": 77,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 367,
+            "beat": {
+                "bar": 77,
+                "numerator": 7,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 368,
+            "beat": {
+                "bar": 78,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 369,
+            "beat": {
+                "bar": 78,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 370,
+            "beat": {
+                "bar": 78,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 371,
+            "beat": {
+                "bar": 78,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 372,
+            "beat": {
+                "bar": 79,
+                "numerator": 0,
+                "denominator": 8
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 373,
+            "beat": {
+                "bar": 79,
+                "numerator": 2,
+                "denominator": 8
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 374,
+            "beat": {
+                "bar": 79,
+                "numerator": 4,
+                "denominator": 8
+            },
+            "lane": 2,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 375,
+            "beat": {
+                "bar": 79,
+                "numerator": 6,
+                "denominator": 8
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 376,
+            "beat": {
+                "bar": 80,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 0,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 377,
+            "beat": {
+                "bar": 80,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 378,
+            "beat": {
+                "bar": 80,
+                "numerator": 3,
+                "denominator": 4
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 379,
+            "beat": {
+                "bar": 81,
+                "numerator": 0,
+                "denominator": 4
+            },
+            "lane": 1,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
+        },
+        {
+            "id": 380,
+            "beat": {
+                "bar": 81,
+                "numerator": 2,
+                "denominator": 4
+            },
+            "lane": 3,
+            "type": "tap",
+            "isSpawned": false,
+            "isJudged": false
         }
     ]
 }
