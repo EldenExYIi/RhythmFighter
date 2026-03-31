@@ -132,3 +132,5 @@ MonoBehaviour:
   rhythmManager: {fileID: 0}
   spawnLine: {fileID: 0}
   judgeLine: {fileID: 0}
+  judgeManager: {fileID: 0}
+  spriteRenderer: {fileID: 8704591614053237189}
