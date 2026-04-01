@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class HoldNotePrefab : NotePrefab
 {
@@ -36,9 +37,16 @@ public class HoldNotePrefab : NotePrefab
     public override void Update()
     {
         base.Update();
+        if(noteData.isHolding && !noteData.isJudged) // 如果玩家正在长按且该音符还没有被判定，显示Perfect判定效果并销毁音符
+        {
+            transform.localScale= new Vector3(0.8f, transform.localScale.y, transform.localScale.z); // 长按音符被击打时缩小，提供视觉反馈
+        }else if(noteData.isJudged) // 如果该音符已经被判定，恢复原始大小
+        {
+            transform.localScale= new Vector3(0.95f, transform.localScale.y, transform.localScale.z);
+        }
         if(rhythmManager.currentDspTime > hitTime + lastTime && noteData.isHolding && !noteData.isJudged) // 如果当前时间超过长按音符的结束时间且玩家正在长按且该音符还没有被判定，显示Perfect判定效果并销毁音符
         {
-            judgeManager.ShowJedgeEffect(JudgeManager.JudgeResult.Perfect); // 显示Perfect判定效果
+            judgeManager.ShowJudgeEffect(JudgeManager.JudgeResult.Perfect); // 显示Perfect判定效果
             noteData.isJudged = true; // 标记该音符已经被判定，避免重复判定
             Destroy(gameObject);
         }
@@ -46,7 +54,7 @@ public class HoldNotePrefab : NotePrefab
         {
             if(!noteData.isJudged) // 如果该音符还没有被判定，显示Miss判定效果
             {
-                judgeManager.ShowJedgeEffect(JudgeManager.JudgeResult.Miss); // 显示Miss判定效果
+                judgeManager.ShowJudgeEffect(JudgeManager.JudgeResult.Miss); // 显示Miss判定效果
             }
             noteData.isJudged = true; // 标记该音符已经被判定，避免重复判定
             Destroy(gameObject);

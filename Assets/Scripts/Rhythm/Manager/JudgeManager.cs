@@ -87,7 +87,7 @@ public class JudgeManager : MonoBehaviour
                 result = JudgeResult.Miss;
             }
 
-            ShowJedgeEffect(result);
+            ShowJudgeEffect(result);
             Debug.Log($"JudgeManager: lane {lane} input at {inputDspTime:F2}s, closest note ID {closestNote.id} at beat {closestNote.beat.bar}:{closestNote.beat.numerator}/{closestNote.beat.denominator}, hit time diff: {closestTimeDiff:F2}s, result: {result}");
 
             if (closestNote.type == "hold" && result != JudgeResult.Miss) // 如果是长按音符且没有Miss，根据玩家输入的时间与目标击打时间的关系来更新长按状态，便于在HoldNotePrefab中显示不同的判定效果
@@ -134,7 +134,7 @@ public class JudgeManager : MonoBehaviour
             else
                 result = JudgeResult.Perfect; // 如果玩家松键的时间晚于或等于长按音符的结束时间，说明玩家成功持续按住了整个长按音符，判定为Perfect
 
-            ShowJedgeEffect(result);
+            ShowJudgeEffect(result);
             Debug.Log($"JudgeManager: lane {lane} input at {inputDspTime:F2}s, closest note ID {closestNote.id} at beat {closestNote.beat.bar}:{closestNote.beat.numerator}/{closestNote.beat.denominator}, hit time diff: {closestTimeDiff:F2}s, result: {result}");
             closestNote.isJudged = true; // 标记该音符已经被判定，避免重复判定
         }
@@ -143,7 +143,7 @@ public class JudgeManager : MonoBehaviour
             Debug.Log($"JudgeManager: lane {lane} input at {inputDspTime:F2}s, no matching note found, result: Miss");
         }
     }
-    public void ShowJedgeEffect(JudgeResult result)
+    public void ShowJudgeEffect(JudgeResult result)
     {
         Vector3 effectPosition = new Vector3(judgeLine.position.x - 3, judgeLine.position.y + 1, judgeLine.position.z + 3); // 可以根据需要调整判定效果的位置
         JudgeEffectsPrefab effectView = Instantiate(judgeEffectsPrefab, effectPosition, Quaternion.identity, judgeEffectsRoot);
