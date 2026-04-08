@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public float speed = 5f;
-    public Vector3 minBounds = new Vector3(-3.75f, 0.02f, -7f);   // 最小坐标 (x, y, z)
-    public Vector3 maxBounds = new Vector3(3.75f, 0.02f, -7f);
+    public Vector3 minBounds = new Vector3(-3.75f, 0.7f, -7f);   // 最小坐标 (x, y, z)
+    public Vector3 maxBounds = new Vector3(3.75f, 0.7f, -7f);
     void Start()
     {
-        transform.position = new Vector3(0, 0.02f, -7f);
+        transform.position = new Vector3(0, 0.7f, -7f);
     }
 
     // Update is called once per frame

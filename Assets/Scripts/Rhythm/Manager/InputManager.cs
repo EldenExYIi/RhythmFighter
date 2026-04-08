@@ -28,10 +28,10 @@ public class InputManager : MonoBehaviour
     }
 
     [Header("4K Keys")]
-    private KeyCode lane0Key = KeyCode.A;
-    private KeyCode lane1Key = KeyCode.S;
-    private KeyCode lane2Key = KeyCode.K;
-    private KeyCode lane3Key = KeyCode.L;
+    private KeyCode lane0Key = KeyCode.Q;
+    private KeyCode lane1Key = KeyCode.W;
+    private KeyCode lane2Key = KeyCode.E;
+    private KeyCode lane3Key = KeyCode.R;
     // Start is called before the first frame update
 
     private readonly Queue<RhythmInputEvent> inputQueue = new Queue<RhythmInputEvent>();
