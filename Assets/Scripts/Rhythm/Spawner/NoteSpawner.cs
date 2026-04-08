@@ -22,7 +22,7 @@ public class NoteSpawner : MonoBehaviour
     public Transform spawnLine; // 音符生成线
     public Transform judgeLine; // 音符判定线
     public Transform notesRoot;  // 音符的父物体，便于管理生成的音符
-    
+
 
     private void Awake()
     {
