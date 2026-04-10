@@ -189,6 +189,7 @@ Transform:
   - {fileID: 247771772}
   - {fileID: 63279072}
   - {fileID: 1543935652}
+  - {fileID: 997109859}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &146871163
@@ -311,6 +312,7 @@ MonoBehaviour:
   moveDistance: 0
   rhythmLinePrefab: {fileID: -8002124499726404729, guid: b4ab63376c97f0f4e977a5c0b974a0b6, type: 3}
   rhythmLinesRoot: {fileID: 247771772}
+  bulletSpawner: {fileID: 997109860}
 --- !u!4 &267018665
 Transform:
   m_ObjectHideFlags: 0
@@ -1260,6 +1262,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+--- !u!1 &997109858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 997109859}
+  - component: {fileID: 997109860}
+  m_Layer: 0
+  m_Name: BulletSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &997109859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997109858}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 86581667}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &997109860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997109858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49f3eba7fbad8a4e9ae6921495ec3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rhythmManager: {fileID: 267018664}
+  spawnLine: {fileID: 708278782}
+  judgeLine: {fileID: 1897109414}
+  notesRoot: {fileID: 146871164}
+  bulletPrefab: {fileID: 353751610458773282, guid: a35223156009ebb41a12ca5b3af62d12, type: 3}
+  leftBorder: {fileID: 2081135578}
+  rightBorder: {fileID: 568021859}
+  defaultAcceleration: {x: 0, y: 0, z: -10}
+  bulletGroups: []
+  useTestMode: 0
+  testGroupCount: 100
 --- !u!1 &1062990328
 GameObject:
   m_ObjectHideFlags: 0

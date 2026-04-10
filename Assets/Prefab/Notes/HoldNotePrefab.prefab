@@ -134,6 +134,7 @@ MonoBehaviour:
   rhythmManager: {fileID: 0}
   spawnLine: {fileID: 0}
   judgeLine: {fileID: 0}
+  judgeManager: {fileID: 0}
 --- !u!1 &4369944773538643116
 GameObject:
   m_ObjectHideFlags: 0
