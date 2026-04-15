@@ -3,12 +3,14 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Vector3 initialVelocity;
+    private Vector3 currentVelocity;
     private Vector3 acceleration;
     private double spawnDspTime;
     private double hitDspTime;        // 保留用于可能的判定逻辑，不再用于销毁
     private RhythmManager rhythmManager;
     private Vector3 spawnPosition;
     private float judgeZ;             // 判定线的 Z 坐标，用于位置销毁判断
+    private float angle;              // 子弹的旋转角度，用于视觉效果
 
     private bool initialized = false;
 
@@ -40,6 +42,11 @@ public class Bullet : MonoBehaviour
 
         // 根据匀变速公式更新位置
         float t = (float)elapsed;
+        
+        currentVelocity = initialVelocity + acceleration * t;
+        angle = Mathf.Atan2(currentVelocity.z, currentVelocity.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, -(angle + 90), 0);
+
         Vector3 displacement = initialVelocity * t + 0.5f * acceleration * t * t;
         transform.position = spawnPosition + displacement;
 
