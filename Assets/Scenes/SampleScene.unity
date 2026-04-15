@@ -1310,7 +1310,7 @@ MonoBehaviour:
   spawnLine: {fileID: 708278782}
   judgeLine: {fileID: 1897109414}
   notesRoot: {fileID: 146871164}
-  bulletPrefab: {fileID: 353751610458773282, guid: a35223156009ebb41a12ca5b3af62d12, type: 3}
+  bulletPrefab: {fileID: 9219316678001393234, guid: 0b2ea416fd2861445943c40d70321020, type: 3}
   leftBorder: {fileID: 2081135578}
   rightBorder: {fileID: 568021859}
   defaultAcceleration: {x: 0, y: 0, z: -10}

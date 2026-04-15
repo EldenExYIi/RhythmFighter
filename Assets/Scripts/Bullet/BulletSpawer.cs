@@ -104,6 +104,8 @@ public class BulletSpawner : MonoBehaviour
         Vector3 velocity = new Vector3(vx, 0, group.velocityZ);
         Vector3 acceleration = new Vector3(0, 0, group.accelerationZ);
 
+        spawnPos.y += 0.2f;
+
         GameObject obj = Instantiate(bulletPrefab, spawnPos, Quaternion.identity, notesRoot);
         Bullet bullet = obj.GetComponent<Bullet>();
         if (bullet == null)
