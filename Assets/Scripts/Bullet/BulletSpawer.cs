@@ -102,11 +102,11 @@ public class BulletSpawner : MonoBehaviour
                                                  spawnLine.position.z, judgeLine.position.z);
         float vx = (float)((judgeX - spawnX) / flightTime);
         Vector3 velocity = new Vector3(vx, 0, group.velocityZ);
-        Vector3 acceleration = new Vector3(0, 0, group.accelerationZ);
+        Vector3 acceleration = Vector3.zero;  // 强制无加速度
 
-        spawnPos.y += 0.2f;
 
-        GameObject obj = Instantiate(bulletPrefab, spawnPos, Quaternion.identity, notesRoot);
+        GameObject obj = Instantiate(bulletPrefab, spawnPos, Quaternion.identity, notesRoot);      
+
         Bullet bullet = obj.GetComponent<Bullet>();
         if (bullet == null)
         {
