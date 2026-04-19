@@ -8,6 +8,10 @@ using UnityEngine.UI;
 
 public class RhythmManager : MonoBehaviour
 {
+    [Header("Pause Settings")]
+    public bool isPaused = false;
+    private double pausedTimeCache = 0.0;
+
     [Header("Song Config")]
     [SerializeField] private string songFolderName = "SongDemo";
     [SerializeField] private string songConfigFileName = "ConfigDemo.json";
@@ -26,13 +30,23 @@ public class RhythmManager : MonoBehaviour
 
     [Header("Timing")]
     public double musicStartDspTime; // 音乐开始播放的DSP时间，用于与TimingManager同步
-    public double currentDspTime => isPlaying ? AudioSettings.dspTime - musicStartDspTime : 0.0; // 当前的DSP时间
+    public double currentDspTime
+    {
+        get
+        {
+            if (!isPlaying) return 0.0;
+            if (isPaused) return pausedTimeCache;
+            return AudioSettings.dspTime - musicStartDspTime;
+        }
+    }
     public double spawnToHitTime; // 音符从生成到需要被击打的时间，单位为秒，用于计算音符生成时机和位置
     public double prepareTime=2.0; // 在音乐开始前提前生成音符的时间，单位为秒，确保玩家有足够的时间看到音符并做出反应
 
     [Header("Speed")]
     public float currentSongsBpm; // 歌曲的BPM，后续可以根据谱面中的BPM变化进行调整
     public float currentSongsSpeed; // 歌曲的速度，从谱面数据中获取
+
+    private float userSpeedMultiplier = 1f; 
 
     [Header("Position Settings")]
     public Transform spawnLine; // 音符生成线
@@ -56,6 +70,7 @@ public class RhythmManager : MonoBehaviour
     }
     private void Update()
     {
+        if(isPaused)return;
         foreach(var bpmsData in CurrentChartData.timing.bpms)
         {
             if (bpmsData.beat.bar == 0 && bpmsData.beat.numerator == 0) // 在谱面开始时设置初始BPM
@@ -77,7 +92,7 @@ public class RhythmManager : MonoBehaviour
             double speedChangeDspTime = BeatToSeconds(speedChangeData.beat, currentSongsBpm) + CurrentChartData.timing.offsetMs/1000.0; // 考虑全局偏移
             if (currentDspTime >= speedChangeDspTime && !speedChangeData.isChanged) // 根据当前DSP时间进行速度变化处理，确保在速度变化发生时及时更新节奏管理器的速度值
             {
-                currentSongsSpeed = speedChangeData.speedRate * CurrentChartData.meta.speed; // 将速度倍率应用到谱面基础速度上
+                currentSongsSpeed = speedChangeData.speedRate * CurrentChartData.meta.speed * userSpeedMultiplier; // 将速度倍率应用到谱面基础速度上
                 spawnToHitTime = moveDistance / currentSongsSpeed; // 根据新的速度重新计算spawnToHitTime
                 speedChangeData.isChanged = true; // 标记该速度变化已被处理，避免重复处理同一个速度变化
                 Debug.Log($"NoteSpawner: Speed changed to {currentSongsSpeed} at beat {speedChangeData.beat.bar}:{speedChangeData.beat.numerator}/{speedChangeData.beat.denominator}");
@@ -86,6 +101,61 @@ public class RhythmManager : MonoBehaviour
         SpawnRhythmLine(); // 在每帧更新中调用SpawnRhythmLine方法，根据当前DSP时间生成节奏线，确保节奏线在正确的时间出现在生成线上
     }
 
+    public void SetUserSpeedMultiplier(float multiplier)
+    {
+        userSpeedMultiplier = multiplier;
+        // 重新计算当前速度（假设 meta.speed 是基础）
+        if (CurrentChartData != null)
+        {
+            currentSongsSpeed = CurrentChartData.meta.speed * userSpeedMultiplier;
+            spawnToHitTime = moveDistance / currentSongsSpeed;
+        }
+    }
+
+    public void SetPause(bool pause)
+    {
+        if (pause)
+        {
+            // 暂停前缓存当前时间
+            pausedTimeCache = AudioSettings.dspTime - musicStartDspTime;
+            audioSource.Pause();
+            isPaused = true;
+            // 注意：不要修改 isPlaying，保持为 true
+        }
+        else
+        {
+            // 恢复时重新校准 musicStartDspTime
+            musicStartDspTime = AudioSettings.dspTime - pausedTimeCache;
+            audioSource.UnPause();
+            isPaused = false;
+        }
+    }
+    public void PauseMusic()
+    {
+        if (audioSource == null) return;
+        audioSource.Pause();
+        isPlaying = false;
+        isPaused = true;
+    }
+
+    public void ResumeMusic()
+    {
+        if (audioSource == null) return;
+        audioSource.UnPause();
+        isPlaying = true;
+        isPaused = false;
+        // 注意：AudioSettings.dspTime 在暂停期间仍会增长，但 AudioSource.time 保持不变。
+        // 因此需要重新校准 musicStartDspTime，避免音符时间错位。
+        musicStartDspTime = AudioSettings.dspTime - audioSource.time;
+    }
+
+    public void SetTimeOffset(int offsetMs)
+    {
+        if (CurrentChartData != null && CurrentChartData.timing != null)
+        {
+            CurrentChartData.timing.offsetMs = offsetMs;
+        }
+    }
     public IEnumerator LoadSongRoutine(string folderName, int level)
     {
         string songRootPath = Path.Combine(Application.dataPath, "Songs", folderName); //构建歌曲根目录路径，例如 "Assets/Songs/SongDemo"
@@ -239,16 +309,6 @@ public class RhythmManager : MonoBehaviour
         // Debug.Log("RhythmManager: music stopped.");
     }
 
-    public void PauseMusic()
-    {
-        if (audioSource == null)
-        {
-            return;
-        }
-
-        audioSource.Pause();
-        // Debug.Log("RhythmManager: music paused.");
-    }
     public double BeatToSeconds(BeatData beat, double bpm) //将谱面中的节拍数据转换为对应的时间（秒）
     {
         if (CurrentChartData == null || CurrentChartData.meta.beatsPerBar <= 0)

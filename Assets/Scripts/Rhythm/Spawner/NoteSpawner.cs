@@ -7,7 +7,6 @@ public class NoteSpawner : MonoBehaviour
 {
     public RhythmManager rhythmManager;// 引用 RhythmManager 获取节奏信息
     public JudgeManager judgeManager; // 引用 JudgeManager 进行判定
-    
     [Header("Note Prefabs")]
     public NotePrefab tapNotePrefab;  // Tap Note 预制体
     public NotePrefab holdNotePrefab; // Hold Note 预制体，可以在后续添加更多类型的音符预制体
@@ -37,7 +36,7 @@ public class NoteSpawner : MonoBehaviour
 
     void Update()
     {
-        if (!rhythmManager.isPlaying)
+        if (!rhythmManager.isPlaying || rhythmManager.isPaused)
         {
             return;
         }

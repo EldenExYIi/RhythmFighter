@@ -28,7 +28,7 @@ public class NotePrefab : MonoBehaviour
 
     public virtual void Update()
     {
-        if (!initialized) return;
+        if (!initialized || rhythmManager.isPaused) return;
         float updateDis = (float)(rhythmManager.currentDspTime - hitTime) * (spawnLine.position.z - judgeLine.position.z) / (float)rhythmManager.spawnToHitTime;
         transform.position = new Vector3(spawnPos.x, spawnPos.y, judgeLine.position.z - updateDis);
     }
